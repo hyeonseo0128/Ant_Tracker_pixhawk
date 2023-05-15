@@ -1,0 +1,9 @@
+{
+    "host": "gcs.iotocean.org",
+    "drone": "UMACA54",
+    "gcs": "KETI_GCS",
+    "type": "ardupilot",
+    "system_id": 54,
+    "update": "disable",
+    "mission": {}
+}
