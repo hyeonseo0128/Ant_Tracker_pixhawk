@@ -256,9 +256,9 @@ function localMqttConnect(host) {
 //---------------------------------------------------
 
 function runMotor() {
-    setTimeout(() => {
-        motor_control_message = 'init';
-    }, 3000);
+    // setTimeout(() => {
+    //     motor_control_message = 'init';
+    // }, 3000);
 
     setTimeout(() => {
         setInterval(() => {
@@ -381,11 +381,15 @@ let initAction = () => {
         motor_control_message = 'zero';
 
         setTimeout(() => {
-            if (myHeading > 0) {
-                motor_control_message = 'go-' + myHeading;
-            } else if (myHeading < 0) {
+            if (myHeading > 180) {
+                motor_control_message = 'go' + (myHeading - 180);
+            }
+            else if (myHeading < 180) {
                 motor_control_message = 'go' + myHeading * (-1);
             }
+            setTimeout(() => {
+                motor_control_message = 'stop';
+            }, 10000);
 
 
             // setTimeout(() => {
