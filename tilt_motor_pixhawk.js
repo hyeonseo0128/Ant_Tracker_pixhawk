@@ -172,9 +172,8 @@ function localMqttConnect(host) {
         // console.log('topic, message => ', topic, message);
 
         if (topic == sub_motor_control_topic) { // 모터 제어 메세지 수신
-            pan_motor_control_message = message.toString();
-            tilt_motor_control_message = message.toString();
-            // console.log(topic, pan_motor_control_message);
+            motor_control_message = message.toString();
+            // console.log(topic, motor_control_message);
         } else if (topic.includes(sub_drone_data_topic)) { // 드론데이터 수신
             localmqtt_message = message.toString('hex');
             // console.log("Client1 topic => " + topic);
