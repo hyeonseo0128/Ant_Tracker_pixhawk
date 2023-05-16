@@ -54,6 +54,10 @@ let myLongitude = 0.0;
 let myAltitude = 0.0;
 let myRelativeAltitude = 0.0;
 
+let myRoll = 0.0;
+let myPitch = 0.0;
+let myYaw = 0.0;
+
 let target_latitude = '';
 let target_longitude = '';
 let target_altitude = '';
@@ -230,7 +234,9 @@ function localMqttConnect(host) {
             // console.log('tracker_location_msg: ', myLatitude, myLongitude, myRelativeAltitude, myHeading);
         } else if (topic === sub_gps_attitude_topic) {
             tracker_attitude_msg = JSON.parse(message.toString());
-            myRoll = tracker_attitude_msg.roll;
+            let myRoll = 0.0;
+            let myPitch = 0.0;
+            let myYaw = 0.0; = tracker_attitude_msg.roll;
             myPitch = tracker_attitude_msg.pitch;
             myYaw = tracker_attitude_msg.yaw;
             // console.log('tracker_location_msg: ', myRoll, myPitch, myYaw);
